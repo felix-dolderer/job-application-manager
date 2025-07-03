@@ -4,15 +4,24 @@
   "description": "A web application to track and manage job applications",
   "main": "index.js",
   "scripts": {
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "server": "cd server && npm run dev",
-    "client": "cd client && npm start",
+    "dev": "concurrently \"npm run server:dev\" \"npm run client:dev\"",
+    "server:dev": "cd server && npm run dev",
+    "client:dev": "cd client && npm start",
+    "server:start": "cd server && npm start", 
+    "client:build": "cd client && npm run build",
+    "build": "npm run client:build",
+    "start": "npm run server:start",
     "install-all": "npm install && cd server && npm install && cd ../client && npm install",
-    "build": "cd client && npm run build"
+    "heroku-postbuild": "npm run install-all && npm run build",
+    "vercel-build": "npm run install-all && npm run build"
   },
   "keywords": ["job", "application", "tracker", "career"],
   "author": "",
   "license": "MIT",
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  },
   "devDependencies": {
     "concurrently": "^8.2.2"
   }
