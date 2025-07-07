@@ -1,19 +1,33 @@
 {
   "name": "job-application-tracker",
   "version": "1.0.0",
-  "description": "A web application to track and manage job applications",
-  "main": "index.js",
+  "description": "A Next.js web application to track and manage job applications",
+  "private": true,
   "scripts": {
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "server": "cd server && npm run dev",
-    "client": "cd client && npm start",
-    "install-all": "npm install && cd server && npm install && cd ../client && npm install",
-    "build": "cd client && npm run build"
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
-  "keywords": ["job", "application", "tracker", "career"],
-  "author": "",
-  "license": "MIT",
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "next": "15.3.5",
+    "axios": "^1.10.0",
+    "date-fns": "^4.1.0",
+    "sqlite3": "^5.1.6",
+    "dotenv": "^16.3.1"
+  },
   "devDependencies": {
-    "concurrently": "^8.2.2"
-  }
+    "typescript": "^5",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@tailwindcss/postcss": "^4",
+    "tailwindcss": "^4",
+    "eslint": "^9",
+    "eslint-config-next": "15.3.5",
+    "@eslint/eslintrc": "^3"
+  },
+  "keywords": ["job", "application", "tracker", "career", "nextjs"]
 }

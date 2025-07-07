@@ -1,7 +1,9 @@
+'use client';
+
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { JobApplication, Statistics } from '../types';
-import { applicationService } from '../services/api';
+import Link from 'next/link';
+import { JobApplication, Statistics } from '@/types';
+import { applicationService } from '@/lib/api';
 import { format } from 'date-fns';
 
 interface DashboardProps {
@@ -82,7 +84,7 @@ const Dashboard: React.FC<DashboardProps> = ({ applications, loading }) => {
       <div className="flex justify-between items-center">
         <h1 className="text-3xl font-bold text-gray-900">Dashboard</h1>
         <Link
-          to="/applications/new"
+          href="/applications/new"
           className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors"
         >
           Add New Application
@@ -127,7 +129,7 @@ const Dashboard: React.FC<DashboardProps> = ({ applications, loading }) => {
                 <div key={app.id} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
                   <div>
                     <Link
-                      to={`/applications/${app.id}`}
+                      href={`/applications/${app.id}`}
                       className="font-medium text-blue-600 hover:text-blue-800"
                     >
                       {app.position_title}
@@ -157,7 +159,7 @@ const Dashboard: React.FC<DashboardProps> = ({ applications, loading }) => {
                 <div key={app.id} className="flex items-center justify-between p-3 bg-yellow-50 rounded-lg">
                   <div>
                     <Link
-                      to={`/applications/${app.id}`}
+                      href={`/applications/${app.id}`}
                       className="font-medium text-blue-600 hover:text-blue-800"
                     >
                       {app.position_title}
